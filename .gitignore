@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+.DS_Store
+out/
+website/
+.agents/
+.claude/
+.codex/
+*.docx
+
+# Large local training corpora and checkpoints are intentionally kept out of Git.
+data/pretrain_t2t_mini.jsonl
+data/sft_t2t_mini.jsonl
+*.pth

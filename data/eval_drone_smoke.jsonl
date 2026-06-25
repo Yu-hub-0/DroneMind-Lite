@@ -1,0 +1,5 @@
+{"id":"preflight_check","question":"无人机起飞前需要做哪些检查？","keywords":["电池","桨叶","GPS","返航高度","禁飞区"]}
+{"id":"gps_loss","question":"无人机飞行中 GPS 信号丢失应该怎么处理？","keywords":["ATTI","手动","可视范围","升高","安全降落"]}
+{"id":"battery_health","question":"如何判断无人机电池是否需要更换？","keywords":["循环","鼓包","电压差","容量","停用"]}
+{"id":"strong_wind","question":"无人机在强风环境下飞行要注意什么？","keywords":["抗风等级","返航","逆风","电量","降落"]}
+{"id":"mapping_overlap","question":"无人机航测时如何设置航向重叠率和旁向重叠率？","keywords":["航向","旁向","重叠率","地形","建模"]}

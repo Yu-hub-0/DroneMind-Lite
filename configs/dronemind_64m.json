@@ -1,0 +1,78 @@
+{
+  "project": "DroneMind",
+  "model": {
+    "hidden_size": 768,
+    "num_hidden_layers": 8,
+    "use_moe": false,
+    "max_seq_len_pretrain": 340,
+    "max_seq_len_sft": 768,
+    "max_seq_len_rl": 1024
+  },
+  "paths": {
+    "tokenizer": "model",
+    "out": "out",
+    "pretrain_data": "data/pretrain_merged.jsonl",
+    "sft_sources": [
+      "data/sft_drone_sample.jsonl",
+      "data/sft_drone.jsonl",
+      "data/sft_drone_batch2.jsonl",
+      "data/sft_drone_batch3.jsonl"
+    ],
+    "sft_merged": "data/sft_merged.jsonl",
+    "dpo_data": "data/dpo_drone_sample.jsonl",
+    "rlaif_data": "data/rlaif_drone_sample.jsonl",
+    "agent_data": "data/agent_drone.jsonl",
+    "eval_data": "data/eval_drone_smoke.jsonl",
+    "benchmark_data": "data/drone_benchmark_v1.jsonl",
+    "benchmark_report": "reports/drone_benchmark_report.json",
+    "tooluse_report": "reports/tooluse_eval_report.json"
+  },
+  "training": {
+    "pretrain": {
+      "epochs": 1,
+      "batch_size": 32,
+      "accumulation_steps": 8,
+      "learning_rate": 0.0005
+    },
+    "sft": {
+      "epochs": 5,
+      "batch_size": 4,
+      "accumulation_steps": 1,
+      "learning_rate": 0.00001
+    },
+    "lora": {
+      "epochs": 3,
+      "batch_size": 8,
+      "learning_rate": 0.0001,
+      "lora_name": "lora_drone"
+    },
+    "dpo": {
+      "epochs": 1,
+      "batch_size": 2,
+      "learning_rate": 0.00000004,
+      "beta": 0.15
+    },
+    "grpo": {
+      "epochs": 1,
+      "batch_size": 1,
+      "learning_rate": 0.0000003,
+      "beta": 0.1,
+      "num_generations": 2,
+      "max_gen_len": 128,
+      "max_steps": 1,
+      "num_workers": 0,
+      "reward_model_path": "rule"
+    },
+    "agent": {
+      "epochs": 1,
+      "batch_size": 1,
+      "learning_rate": 0.0000003,
+      "beta": 0.1,
+      "num_generations": 2,
+      "max_gen_len": 128,
+      "max_steps": 1,
+      "num_workers": 0,
+      "reward_model_path": "rule"
+    }
+  }
+}
